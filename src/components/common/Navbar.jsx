@@ -1,120 +1,85 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // later NextAuth দিয়ে replace হবে
-  const [dropdown, setDropdown] = useState(false);
-
   return (
-    <nav className="w-full shadow-md sticky top-0 left-0 z-50 bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          MyBrand
+    <nav className="navbar bg-[#2b3440] text-gray-200 px-4 shadow-md sticky top-0 z-50">
+
+      {/* Left - Logo */}
+      <div className="navbar-start">
+        <Link href="/" className="text-2xl font-bold text-white tracking-wide">
+          MyWebsite
         </Link>
+      </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="hover:text-blue-600">Home</Link>
-          <Link href="/items" className="hover:text-blue-600">Items</Link>
-          <Link href="/about" className="hover:text-blue-600">About</Link>
-          <Link href="/contact" className="hover:text-blue-600">Contact</Link>
-
-          {/* LOGIN / PROFILE */}
-          {!isLoggedIn ? (
-            <Link
-              href="/login"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Login / Register
+      {/* Center - Menu for Desktop */}
+      <div className="navbar-center hidden md:flex">
+        <ul className="menu menu-horizontal px-1 text-gray-300">
+          <li>
+            <Link href="/" className="hover:text-white transition">
+              Home
             </Link>
-          ) : (
-            <div className="relative">
-              <button
-                onClick={() => setDropdown(!dropdown)}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"
-              >
-                <span>Hi, User</span>
-                <span>▼</span>
-              </button>
+          </li>
+          <li>
+            <Link href="/about" className="hover:text-white transition">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/services" className="hover:text-white transition">
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="hover:text-white transition">
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
 
-              {dropdown && (
-                <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md w-44 py-2">
-                  <Link
-                    href="/add-product"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Add Product
-                  </Link>
-                  <Link
-                    href="/manage-products"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Manage Products
-                  </Link>
-                  <button
-                    onClick={() => setIsLoggedIn(false)}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-2xl"
-        >
-          ☰
+      {/* Right - Button */}
+      <div className="navbar-end">
+        <button className="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-lg px-4">
+          Get Started
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-3">
-          <Link href="/" className="block hover:text-blue-600">Home</Link>
-          <Link href="/items" className="block hover:text-blue-600">Items</Link>
-          <Link href="/about" className="block hover:text-blue-600">About</Link>
-          <Link href="/contact" className="block hover:text-blue-600">Contact</Link>
-
-          {!isLoggedIn ? (
-            <Link
-              href="/login"
-              className="block px-4 py-2 bg-blue-600 text-white rounded-lg text-center"
-            >
-              Login / Register
-            </Link>
-          ) : (
-            <div className="space-y-2">
-              <Link
-                href="/add-product"
-                className="block px-4 py-2 bg-gray-200 rounded-lg"
-              >
-                Add Product
+      {/* Mobile Menu Button */}
+      <div className="md:hidden navbar-end ml-2">
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost text-white">
+            ☰
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] bg-gray-800 text-gray-200 rounded-box w-48 shadow-lg"
+          >
+            <li>
+              <Link href="/" className="hover:text-white">
+                Home
               </Link>
-              <Link
-                href="/manage-products"
-                className="block px-4 py-2 bg-gray-200 rounded-lg"
-              >
-                Manage Products
+            </li>
+            <li>
+              <Link href="/about" className="hover:text-white">
+                About
               </Link>
-              <button
-                className="block w-full px-4 py-2 bg-red-500 text-white rounded-lg"
-                onClick={() => setIsLoggedIn(false)}
-              >
-                Logout
-              </button>
-            </div>
-          )}
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-white">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-white">
+                Contact
+              </Link>
+            </li>
+          </ul>
         </div>
-      )}
+      </div>
+
     </nav>
   );
 }
