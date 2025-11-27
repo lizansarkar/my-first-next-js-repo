@@ -9,7 +9,7 @@ export default function Navbar() {
       {/* Left - Logo */}
       <div className="navbar-start">
         <Link href="/" className="text-2xl font-bold text-white tracking-wide">
-          MyWebsite
+          Lizan
         </Link>
       </div>
 
@@ -17,22 +17,22 @@ export default function Navbar() {
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 text-gray-300">
           <li>
-            <Link href="/" className="hover:text-white transition">
+            <Link href="/" className="text-white">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-white transition">
+            <Link href="/about" className="text-white">
               About
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:text-white transition">
+            <Link href="/services" className="text-white">
               Services
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-white transition">
+            <Link href="/contact" className="text-white">
               Contact
             </Link>
           </li>

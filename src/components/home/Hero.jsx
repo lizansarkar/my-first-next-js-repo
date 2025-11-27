@@ -33,7 +33,7 @@ export default function Hero() {
         {/* Right Side Image / Illustration */}
         <div className="flex justify-center">
           <img
-            src="https://i.imgur.com/7w6YfQ2.png"
+            src="/148427768.png"
             alt="Hero Illustration"
             className="w-80 md:w-[420px] drop-shadow-lg rounded-xl"
           />
