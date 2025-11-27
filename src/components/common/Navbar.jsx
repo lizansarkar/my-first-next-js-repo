@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 export default function Navbar() {
   return (
@@ -41,9 +41,12 @@ export default function Navbar() {
 
       {/* Right - Button */}
       <div className="navbar-end">
-        <button className="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-lg px-4">
-          Get Started
-        </button>
+        <Link href="/login" className="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-lg px-4">
+        Login
+        </Link>
+        <Link href="/register" className="btn btn-sm bg-indigo-600 hover:bg-indigo-700 border-none text-white rounded-lg px-4 ml-10">
+        Register
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
