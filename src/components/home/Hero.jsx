@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section className="bg-gray-900 text-gray-200 py-20 px-6">
+    <section className="bg-gray-900 text-gray-200 py-20 px-6 h-[100vh] flex justify-center items-center">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
         {/* Left Text Section */}
